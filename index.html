@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="icon" href="img/favicon.ico">
+	<title>Noimzip</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<canvas id="c" style="width: 100%; height: 100%; z-index: -10; position: absolute;"></canvas>
+	<script>
+		var c = document.getElementById("c");
+		c.height = window.innerHeight;
+		c.width = window.innerWidth;
+
+		var drop_size = 12;
+		var columns = c.width/drop_size;
+
+		var chinese = "10";
+		chinese = chinese.split("");
+
+		var drops = [];
+		for(var i = 0; i < columns; i++)
+			drops[i] = 1; //y coordinate - same for everyone at the starting. The index contains the x coordinate
+
+		ctx = c.getContext('2d');
+
+		function draw()
+		{
+			ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+			ctx.fillRect(0, 0, c.width, c.height);
+
+			ctx.fillStyle = "#0f0";
+			ctx.font= drop_size + "px arial";
+			for(var i = 0; i < drops.length; i++)
+			{
+				text = chinese[Math.floor(Math.random()*chinese.length)];
+				ctx.fillText(text, i*drop_size, drops[i]*drop_size);
+
+				if(drops[i]*drop_size > c.height && Math.random() > 0.975)
+					drops[i] = 0;
+
+				drops[i]++;
+			}
+
+		}
+
+		setInterval(draw, 33);
+
+
+	</script>
+	<section class="tabs-container">
+		<main class="top-tab" id="home-tab">Home</main>
+		<main class="top-tab" id="eaten-tab">Eatcandy</main>
+		<main class="top-tab" id="ezos-tab">EZOS</main>
+		<main class="top-tab" id="profile-tab">Profile</main>
+	</section>
+
+	<section id="home-contents">
+		<span class="header-contents">Noimzip</span>
+		<section class="tabs-container">
+			<a class="secondary-button" href="https://kaohon.github.io/eaten/index.html">Eatcandy</a>
+			<a class="secondary-button" href="https://github.com/kaohon/EZOS">EZOS</a>
+		</section>
+		<section class="img-contents">
+			<a href="https://kaohon.github.io/eaten/index"><img class="prev-img" src="img/eaten-prev.png" width="360" height="360"></a>
+			<a href="https://github.com/kaohon/EZOS"><img class="prev-img" src="img/ezos-prev.png" width="640" height="360"></a>
+		</section>
+	</section>
+
+	<section id="eaten-contents">
+		<p class="title">Eatcandy</p>
+		Eatcandy は現在、主に開発を進めているプロジェクトです。ブラウザゲームでリポジトリは公開されていません。
+	</section>
+
+	<section id="ezos-contents">
+		<p class="title">EZOS</p>
+		EZOS は過去に自分が HTML, CSS, Javascript を使って開発をしていた、Web上で動く仮想OSです。現在は改変が自由なリポジトリとなっています。
+	</section>
+
+	<section id="profile-contents">
+		<p class="secondary-contents">SNS</p>
+		<section class="tabs-container">
+			<a id="github-button" class="default-button" href="https://github.com/kaohon">GitHub<img src="img/github.png" height="32" width="32"></a>
+			<a id="twitter-button" class="default-button" href="https://x.com/takagiken1_iku">Twitter<img src="img/twitter.png" height="26.25" width="32"></a>
+			<a id="facebook-button" class="default-button" href="https://www.facebook.com/hon.kao.7169">Facebook<img src="img/facebook.png" height="32" width="32"></a>
+		</section>
+		<p class="text-contents">AIを活用して HTML, CSS, Javascript を中心に PHP, Python のプログラミングをしています。</p>
+		<p class="text-contents">コーディングは以前までVSCodeを使っていましたが、現在は<span id="sublime-text">Sublime Text</span>を使い、Git管理では<span id="sublime-merge">Sublime Merge</span>を使っています。</p>
+	</section>
+
+	<script src="script.js"></script>
+</body>
+</html>

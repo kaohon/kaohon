@@ -1,0 +1,239 @@
+body {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+.tabs-container {
+	display: flex;
+	justify-content: center;
+}
+
+.top-tab {
+	width: 100px;
+	padding: 12.5px;
+	text-align: center;
+	margin-left: 10px;
+	position: relative;
+	color: #fff;
+}
+
+.top-tab::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 2px;
+	background-color: #fff;
+	transition: width 0.5s ease, left 0.5s ease;
+}
+
+.top-tab:hover::after {
+	width: 100%;
+	left: 0;
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.header-contents {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  font-size: 120px;
+  color: #fff;
+  animation: slideIn 2.0s ease forwards;
+  z-index: 99;
+}
+
+.secondary-contents {
+	position: relative;
+  display: flex;
+  justify-content: center;
+  font-size: 82px;
+  color: #fff;
+}
+
+.default-button {
+  width: 115px;
+  padding: 15px;
+  margin: 50px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.default-button img {
+	position: absolute;
+	top: 20%;
+}
+
+.default-button::before,
+.default-button::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: #fff;
+  transition: width 0.5s ease;
+}
+
+.default-button::before {
+  top: 0;
+  left: 0;
+}
+
+.default-button::after {
+  bottom: 0;
+  right: 0;
+}
+
+.default-button:hover::before,
+.default-button:hover::after {
+  width: 100%;
+}
+
+#sublime-text,
+#sublime-merge {
+  position: relative;
+  color: #000;
+  z-index: 5; /* Ensure the text has the highest z-index */
+}
+
+#sublime-text::before,
+#sublime-text::after,
+#sublime-merge::before,
+#sublime-merge::after {
+  content: '';
+  position: absolute;
+  width: 0; /* Set initial width to cover entire width */
+  height: 100%; /* Ensure the pseudo-elements cover the entire height */
+}
+
+#sublime-text::before,
+#sublime-text::after {
+  background-color: #FFAA29;
+}
+
+#sublime-merge::before,
+#sublime-merge::after {
+  background-color: #00E6E7;
+}
+
+#sublime-text::before,
+#sublime-merge::before {
+  z-index: -1; /* Move the pseudo-elements behind the text */
+  animation: expand-width 1.25s ease forwards; /* Apply animation */
+}
+
+@keyframes expand-width {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+
+
+.secondary-button {
+	width: 100px;
+	padding: 12.5px;
+	text-align: center;
+	bottom: 125px;
+	margin: 250px;
+	position: relative;
+	color: #fff;
+}
+
+.secondary-button::before,
+.secondary-button::after {
+  content: '';
+  position: absolute;
+  width: 0; /* Initial width set to 0 for animation */
+  height: 2px;
+  background-color: #fff;
+  transition: width 0.5s ease;
+}
+
+.secondary-button::before {
+  top: 0;
+  left: 0;
+  animation: expand-width 0.75s ease forwards; /* Apply animation */
+}
+
+.secondary-button::after {
+  bottom: 0;
+  right: 0;
+  animation: expand-width 0.75s ease forwards 0.75s; /* Apply animation with delay */
+}
+
+.text-contents {
+	text-align: center;
+	font-size: 18px;
+	color: #fff;
+}
+
+#eaten-contents {
+	display: none;
+	color: #fff;
+
+}
+
+#ezos-contents {
+	display: none;
+	color: #fff;
+}
+
+#profile-contents {
+	display: none;
+	color: #fff;
+}
+
+.img-contents {
+	position: relative;
+  display: flex;
+  justify-content: center;
+  bottom: 300px;
+}
+
+.prev-img {
+	margin: -5px;
+	margin-left: 160px;
+	border: solid 2px #fff;
+	animation: slideIn 1.0s ease forwards;
+}
+
+.title {
+	border-left: solid 7.5px;
+	border-right: solid 7.5px;
+	width: fit-content;
+	border-radius: 5px;
+	margin-left: 30px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 24px;
+	color: #fff;
+}
+
+#github-button {
+	color: #fff;
+}
+
+#twitter-button {
+	color: #fff;
+}
+
+#facebook-button {
+	color: #fff;
+}
